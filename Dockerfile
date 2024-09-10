@@ -9,6 +9,9 @@ RUN apt-get update && \
 WORKDIR /app
 COPY . .
 
+# Kiểm tra sự tồn tại của gradlew
+RUN ls -la
+
 # Cấp quyền thực thi cho gradlew và chạy Gradle để xây dựng ứng dụng
 RUN chmod +x gradlew
 RUN ./gradlew bootJar --no-daemon
